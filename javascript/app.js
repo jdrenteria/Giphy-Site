@@ -16,7 +16,7 @@ $(document).ready(function () {
         }
     }
     //function that will make images from giphy
-    $(document.onabort("click", "gif-button", function () {
+    $(document).onabort("click", "gif-button", function () {
         $("#images").empty();
 
         $(".gif-button").removeClass("active");
@@ -42,7 +42,7 @@ $(document).ready(function () {
                     let p = $("<p>").text("Rating: " + rating);
 
                     let animated = results[i].images.fixed_height.url;
-                    let still = results[i].images.fixed_height.url;
+                    let still = results[i].images.fixed_height_still.url;
 
                     let gifImage = $("<img>");
                     gifImage.attr("src", still);
@@ -51,21 +51,39 @@ $(document).ready(function () {
                     gifImage.attr("data-state", "still");
                     gifImage.addClass("gif-image");
 
-                    gifDiv.append(a);
+                    gifDiv.append(p);
                     gifDiv.append(gifImage);
 
                     $("#images").append(gifDiv);
                 }
             });
-    }));
+    });
     // Make Gifs move and stop
-    $(document).on("click", ".gif-image", function(){
+    $(document).on("click", ".gif-image", function () {
         let state = $(this).attr("data-state");
 
-        if (state === "still"){
-            
+        if (state === "still") {
+            $(this).attr("src", $(this).attr("data.animate"));
+            $(this).attr("data-state", "animate");
+        }
+        else {
+            $(this).attr("src", $(this).attr("data-still"));
+            $(this).attr("data-state", "still");
+
         }
 
-    })
+    });
+
+    $("#add-gif").on("click", function (event) {
+        event.preventDefault();
+        let newGif = $(input).eq(0).val();
+
+        if (newGif.length > 2) {
+            gifs.push(newGif);
+        }
+
+        pupulateButtons(gifs, "gif-button", "#gif-buttons");
+    });
+    pupulateButtons(gifs, "gif-button", "#gif-buttons");
 })
 
