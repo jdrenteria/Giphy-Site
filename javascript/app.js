@@ -23,7 +23,7 @@ $(document).ready(function () {
         $(this).addClass("active");
 
         let type = $(this).attr("data-type");
-        let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + type + "&api_key=Zfkrwy1fghnslb0eaoIpCAEVYsIEZz8G&limit=10";
+        let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + type + "&api_key=Zfkrwy1fghnslb0eaoIpCAEVYsIEZz8G&limit=50";
 
         //ajax call
 
@@ -63,7 +63,7 @@ $(document).ready(function () {
         let state = $(this).attr("data-state");
 
         if (state === "still") {
-            $(this).attr("src", $(this).attr("data.animate"));
+            $(this).attr("src", $(this).attr("data-animate"));
             $(this).attr("data-state", "animate");
         }
         else {
