@@ -14,9 +14,9 @@ $(document).ready(function () {
             $(AreaToAddTo).append(a);
 
         }
-     }
-     //function that will make images from giphy
-     $(document.onabort("click", "gif-button",function (){
+    }
+    //function that will make images from giphy
+    $(document.onabort("click", "gif-button", function () {
         $("#images").empty();
 
         $(".gif-button").removeClass("active");
@@ -28,10 +28,44 @@ $(document).ready(function () {
         //ajax call
 
         $.ajax({
-            url:queryURL,
-            method: "GET".
+            url: queryURL,
+            method: "GET"
         })
-        .
-     }))
+            .then(function (response) {
+                let results = response.data;
+
+                for (var i = 0; i < results.length; i++) {
+                    let gifDiv = $("<div class=\"gif-item\">");
+
+                    let rating = results[i].rating;
+
+                    let p = $("<p>").text("Rating: " + rating);
+
+                    let animated = results[i].images.fixed_height.url;
+                    let still = results[i].images.fixed_height.url;
+
+                    let gifImage = $("<img>");
+                    gifImage.attr("src", still);
+                    gifImage.attr("data-still", still);
+                    gifImage.attr("data-animate", animated);
+                    gifImage.attr("data-state", "still");
+                    gifImage.addClass("gif-image");
+
+                    gifDiv.append(a);
+                    gifDiv.append(gifImage);
+
+                    $("#images").append(gifDiv);
+                }
+            });
+    }));
+    // Make Gifs move and stop
+    $(document).on("click", ".gif-image", function(){
+        let state = $(this).attr("data-state");
+
+        if (state === "still"){
+            
+        }
+
+    })
 })
 
