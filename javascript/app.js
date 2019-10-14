@@ -23,13 +23,12 @@ $(document).ready(function () {
         $(this).addClass("active");
 
         let type = $(this).attr("data-type");
-        let queryURL = 'https://api.giphy.com/v1/gifs/search' + type + '&api_key=Zfkrwy1fghnslb0eaoIpCAEVYsIEZz8G';
+        let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + type + "&api_key=Zfkrwy1fghnslb0eaoIpCAEVYsIEZz8G&limit=10";
 
         //ajax call
 
         $.ajax({
-            type:"link",
-            url: queryURL,
+            url:queryURL,
             method: "GET"
         })
             .then(function (response) {
