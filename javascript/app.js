@@ -4,30 +4,31 @@ $(document).ready(function () {
     let gifs = ["Cats", "Videos-Games", "Anime", "Funny", "Naruto"];
     //function to make buttons appear on page 
 
-    function makebuttons(arrayToUse, classToAdd, AreaToAddTo) {
+    function populateButtons(arrayToUse, classToAdd, areaToAddTo) {
         $(areaToAddTo).empty();
-        for (let i = 0; i < arrayToUse.legth; i++) {
+        for (let i = 0; i < arrayToUse.length; i++) {
             let a = $("<button>");
             a.addClass(classToAdd);
             a.attr("data-type", arrayToUse[i]);
             a.text(arrayToUse[i]);
-            $(AreaToAddTo).append(a);
+            $(areaToAddTo).append(a);
 
         }
     }
     //function that will make images from giphy
-    $(document).onabort("click", "gif-button", function () {
+    $(document).on("click", ".gif-button", function () {
         $("#images").empty();
 
         $(".gif-button").removeClass("active");
         $(this).addClass("active");
 
         let type = $(this).attr("data-type");
-        let queryURL = "http://api.giphy.com/v1/gifs/search?q=" + type + "&api_key=Zfkrwy1fghnslb0eaoIpCAEVYsIEZz8G";
+        let queryURL = 'https://api.giphy.com/v1/gifs/search' + type + '&api_key=Zfkrwy1fghnslb0eaoIpCAEVYsIEZz8G';
 
         //ajax call
 
         $.ajax({
+            type:"link",
             url: queryURL,
             method: "GET"
         })
@@ -76,14 +77,14 @@ $(document).ready(function () {
 
     $("#add-gif").on("click", function (event) {
         event.preventDefault();
-        let newGif = $(input).eq(0).val();
+        let newGif = $("input").eq(0).val();
 
         if (newGif.length > 2) {
             gifs.push(newGif);
         }
 
-        pupulateButtons(gifs, "gif-button", "#gif-buttons");
+        populateButtons(gifs, "gif-button", "#gif-buttons");
     });
-    pupulateButtons(gifs, "gif-button", "#gif-buttons");
+    populateButtons(gifs, "gif-button", "#gif-buttons");
 })
 

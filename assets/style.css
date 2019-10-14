@@ -37,7 +37,7 @@ input[type="text"]{
 }
 
 button,
-input[type="submit"]{
+input[type="Submit"]{
     padding: 5px 20px;
     margin: 0 10px 10px 0;
     font-size: 18px;
