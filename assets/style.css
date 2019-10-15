@@ -1,22 +1,55 @@
+
+
+h1{
+    color: white;
+    font-family:initial;
+}
 body{
     font: 18px arial, sans-serif;
-    background: rgb(69, 164,196);
+    background:white;
+    background-image: url(./images/giphy.gif);
+    background-size: cover;
+    text-align: center;
+    background-position: center;
+    background-attachment: fixed;
+    
+}
+#gif-buttons{
+    position:absolute;
+    align-content: space-around;
+    float:left;
+    padding-top: 150px;
+    
 }
 
 #gif-form{
-    float: left;
-    background: white;
-    margin-right: 20px;
+    float:left;
+    color:white;
+    font-family: 'Shadows Into Light', cursive;
+    background-position: left;
+    width:500px; 
+    height:100px; 
+    position: absolute;
+    top: 20%; 
+    left: 42%; 
+    margin-top: -100px; 
+    margin-left: -100px; 
+    clear: both;
+    
+    
 
 }
 
 #gifs {
     width: 70%;
+    margin: 0px 10px 10px 0px;
+    
 }
 
 .gif-item {
     float: left;
-    padding:20px;
+    padding:10px;
+    padding-top: 180px;
 }
 form{
     float: right;
@@ -43,7 +76,7 @@ input[type="Submit"]{
     font-size: 18px;
     color:#fff;
     cursor: pointer;
-    background: lightseagreen;
+    background: purple;
     border: 0;
     border-radius: 5px;
     box-shadow: 2px 2px 3px #bbb;
@@ -54,5 +87,5 @@ input[type="submit"]:hover{
     background: lightslategray;
 }
 button.active{
-    background: lightyellow;
+    background: blueviolet;
 }

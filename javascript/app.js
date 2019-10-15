@@ -1,7 +1,7 @@
 //array for buttons 
 $(document).ready(function () {
 
-    let gifs = ["Cats", "Videos-Games", "Anime", "Funny", "Naruto"];
+    let gifs = [];
     //function to make buttons appear on page 
 
     function populateButtons(arrayToUse, classToAdd, areaToAddTo) {
